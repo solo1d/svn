@@ -1,12 +1,20 @@
-## SVN拉取命令某个目录命令
+## SVN拉取命令某个目录或文件命令
 
 ```bash
-$ svn checkout url --username=*** --password=*** path
+#拉取整个版本库,包括所有历史命令
+$ svn checkout url网址 --username=*** --password=*** path
 		url : 服务器地址
 		path: 要拷贝到电脑的哪个目录下
 		
-# 范例
-$ svn checkout "https://xxxxx" --username=xxx --password=xxx "/Users/jingbin/test-svn"
+	# 范例
+	$ svn checkout "https://xxxxx" --username=xxx --password=xxx "/Users/jingbin/test-svn"
+
+
+# 下载单个文件或目录
+$ svn export 远程服务端文件或目录 本地路径（可为空，则下载到当前位置） --username '用户名'
+	# 范例
+	$ svn export "https://xxxxx" --username=xxx --password=xxx "/Users/jingbin/test-svn"
+
 
 
 从服务器端下载代码到客户端本地
@@ -38,6 +46,15 @@ $ svn commit -m  "提交注释"
 	Sending        weibo/weibo/main.m
 	Transmitting file data .
 	Committed revision 2.
+```
+
+## SVN上传文件或目录到服务器
+
+```bash
+$ svn import 本地文件或目录 远程服务端目录 --username '用户名' --password '密码' -m '添加描述(可为空)'   
+
+	#范例
+	$svn import  "/Users/本地文件或目录" "https://xxxxx" --username=xxx --password=xxx -m '新增文件'
 ```
 
 
