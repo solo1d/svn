@@ -24,6 +24,18 @@ $ svn checkout url网址 --username=*** --password=*** path
 	# 范例
 	$ svn checkout "https://xxxxx" --username=xxx --password=xxx "/Users/jingbin/test-svn"
 
+# 拉取服务器的最新版本内容，只有最新版本的文件会被检出，不会有历史版本的内容。
+$ svn checkout --depth empty <URL>   --username=*** --password=*** path
+				# <URL> 是 SVN 服务器的 URL，这会将工作副本下载到当前目录并设置深度为空
+	# 范例：
+	$ svn svn checkout --depth empty "https://xxxxx" --username=123 --password=Pass  路径1
+			 
+			 # 如果你需要查看某些文件的历史记录，你可以使用以下命令：	
+			 $ svn update --set-depth=infinity  "文件名或目录"
+						#其中 <file_or_folder> 是你想要查看历史记录的文件或文件夹路径。这会将深度设置为“无限”，拉取所有历史版本和当前版本的内容。
+			
+			
+
 
 # 下载单个文件或目录
 $ svn export 远程服务端文件或目录 本地路径（可为空，则下载到当前位置） --username '用户名'
@@ -129,7 +141,7 @@ K：被锁定
 $ svn log 
 
 #查看某个文件的日志
-$ svn log 2.log
+$ svn log 		2.txt
 ```
 
 
