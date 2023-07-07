@@ -24,11 +24,11 @@ $ svn checkout url网址 --username=*** --password=*** path
 	# 范例
 	$ svn checkout "https://xxxxx" --username=xxx --password=xxx "/Users/jingbin/test-svn"
 
-# 拉取服务器的最新版本内容，只有最新版本的文件会被检出，不会有历史版本的内容。
+# 拉取服务器的最新版本内容，只有最新版本的文件会被检出，不会有历史版本的内容。完成再使用svn udate 更新即可
 $ svn checkout --depth empty <URL>   --username=*** --password=*** path
 				# <URL> 是 SVN 服务器的 URL，这会将工作副本下载到当前目录并设置深度为空
 	# 范例：
-	$ svn svn checkout --depth empty "https://xxxxx" --username=123 --password=Pass  路径1
+	$ svn checkout --depth empty "https://xxxxx" --username=123 --password=Pass  路径1
 			 
 			 # 如果你需要查看某些文件的历史记录，你可以使用以下命令：	
 			 $ svn update --set-depth=infinity  "文件名或目录"
